@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            height: 8vh;
+            width: 20vw;
+            background-color: tomato;
+            text-align: center;
+            display: block;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="button" onclick="loop5()">Click here</button>
+    <script>
+        function myLoop() {
+            let x = 0;
+            while (true) {
+                console.log("print x- ", x)
+            }
+        }
+
+        function loop1() {
+            let x = 1;
+            if (true) {
+                console.log("AAA")
+            }
+            console.log("YYY");
+            while (x <= 10) {
+                console.log(`print x- = ${2 * x}`);
+                x++;
+            }
+            console.log("ZZZ")
+        }
+
+
+        function loop2() {
+            let x = 2;
+            while (x <= 15) {
+                if (x % 2 === 0 || x === 3 || x === 9 || x === 15) {
+                    //  if(x!==5,x!==7,x!==11,x!==13)
+                    console.log("print x- ", x)
+                }
+                x++;
+            }
+        }
+
+        function loop3() {
+            let number = 1;
+            while (number != 0) {
+                number = prompt("Enter a Number:")
+            }
+            console.log("Program Ended")
+        }
+
+
+        function loop4() {
+            let userInput;
+            while (true) {
+                let randomNum = Math.floor(Math.random() * 10);
+                userInput = prompt("Enter a number between 0-9");
+                userInput = Number(userInput);
+
+                if (userInput === randomNum) {
+                    console.log("Match found! Program Ended.");
+                    break;
+                } else {
+                    console.log("No Match. Random Number was:" + randomNum);
+                }
+            }
+        }
+
+
+        function loop5() {
+            let total = 0;
+            let i = 0;
+            while (i < 5) {
+                let input = Number(prompt("Number " + " = "));
+                total = total + input;
+                console.log("the output is", total);
+                i++;
+            }
+        }
+        // OR
+        function loop55(){
+            let sum = 0;
+            let count = 0;
+            while (count < 5){
+                let input = prompt("Enter Number" + (count + 1));
+                input = Number(input);
+                sum += input;
+                count++;
+            }
+
+            console.log("Sum of the Number is:", sum)
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days and Hours</title>
+    <style>
+        .button {
+            height: 8vh;
+            width: 20vw;
+            background-color: tomato;
+            text-align: center;
+            display: block;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="button" onclick="days()">Click here</button>
+    <script>
+        function days() {
+            let day = 1;
+            while (day <= 365) {
+                console.log("Day:", day);
+                day++;
+
+                let hour = 1;
+                while (hour <= 24) {
+                    console.log("  Hour:", hour);
+                    hour++;
+
+                    let minute = 1;
+                    while (minute <= 60) {
+                        console.log(" Minute:", minute);
+                        minute++;
+                    }
+                }
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

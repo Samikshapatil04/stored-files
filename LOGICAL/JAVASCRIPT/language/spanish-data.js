@@ -1,0 +1,4 @@
+const spanishData = {
+    heading: "Aprendizaje Automático",
+    paragraph: "El aprendizaje automático (ML) es una rama de la inteligencia artificial (IA) centrada en permitir que computadoras y máquinas imiten la forma en que aprenden los humanos, realicen tareas de forma autónoma y mejoren su rendimiento y precisión mediante la experiencia y la exposición a más datos.Dado que el aprendizaje profundo y el aprendizaje automático suelen usarse indistintamente, cabe destacar las diferencias entre ambos. El aprendizaje automático, el aprendizaje profundo y las redes neuronales son subcampos de la inteligencia artificial. Sin embargo, las redes neuronales son, en realidad, un subcampo del aprendizaje automático, y el aprendizaje profundo es un subcampo de las redes neuronales."
+};

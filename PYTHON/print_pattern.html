@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asterisk Pattern</title>
+</head>
+
+<body>
+    <label for="rows">Enter number of rows:</label>
+    <input type="number" id="rows" min="1">
+    <button onclick="printPattern1()">Print Pattern</button>
+    <p id="result"></p>
+
+    <script>
+        function printPattern() {
+            const numRows = document.getElementById('rows').value;
+            document.getElementById('result').innerHTML = ""; // Clear previous result
+
+            for (let i = 1; i <= numRows; i++) {
+                for (let j = 1; j <= i; j++) {
+                    document.getElementById('result').innerHTML += '*';
+                }
+                document.getElementById('result').innerHTML += "<br>";
+            }
+        }
+
+        function printPattern1() {
+            const numRows = document.getElementById('rows').value;
+            document.getElementById('result').innerHTML = ""; // Clear previous result
+
+            for (let i = 1; i <= numRows; i++) {
+                for (let j = 1; j <= i; j++) {
+                    // Print '*' only at the boundaries
+                    if (j === 1 || j === i || i === numRows) {
+                        document.getElementById('result').innerHTML += '*';
+                    } else {
+                        document.getElementById('result').innerHTML += '&nbsp;&nbsp;';
+                    }
+                }
+                document.getElementById('result').innerHTML += "<br>";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
