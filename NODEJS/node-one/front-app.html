@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front App</title>
+</head>
+
+<body>
+    <h1>Front End</h1>
+    <h3 id="result-text"></h3>
+    <p>Try Accessing <a href="http://localhost:3000/atharv">/atharv</a> or <a
+            href="http://localhost:3000/samiksha">/samiksha</a></p>
+    <p>For any other path, it will respond with "Hello, World!"</p>
+    <button id="myButton-one" onclick="myFunctionOne()">SAMIKSHA</button>
+    <button id="myButton-two" onclick="myFunctionTwo()">ALEKH</button>
+
+    <script>
+        async function myFunctionOne() {
+            one ();
+            two();
+            three();
+            let dict = {
+                "method": "GET",
+            }
+            let response = await fetch("http://localhost:3000/samiksha", dict);
+            console.log(response.text());
+            let result = await response.text();
+            document.getElementById("result-text").innerHTML = result;
+        }
+        async function myFunctionTwo() {
+            let dict = {
+                "method": "GET",
+            }
+            let response = await fetch("http://localhost:3000/alekh", dict);
+            console.log(response.text());
+            let result = await response.text();
+            document.getElementById("result-text").innerHTML = result;
+        }
+
+        function one (){
+            console.log("one start");
+            console.log("one end");
+        }
+        async function two (){
+            console.log("two start");
+            setTimeout(() => {
+                console.log("two end");
+            }, 5000);
+        }
+        function three (){
+            console.log("three start");
+            console.log("three end");
+        }
+    </script>
+</body>
+
+</html>
