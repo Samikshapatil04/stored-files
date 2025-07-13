@@ -1,0 +1,637 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21680\viewh12980\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 drop table table name\
+create table hotel_menu(\
+	id SERIAL,\
+	name VARCHAR,\
+	price INTEGER\
+)\
+\
+insert into hotel_menu(name,price)\
+values ('Idli',30),\
+('Dosa',40),\
+('Samosa',30),\
+('Kachori',25),\
+('Crspy Veg',40);\
+\
+select * from hotel_menu;\
+\
+update hotel_menu\
+set name = 'kachori'\
+where id = 4;\
+set name = 'kachori',price = 35\
+\
+delete from hotel_menu\
+where id = 2;\
+\
+select * from hotel_menu\
+where price < 50;\
+where price = 40;\
+where price > 25;\
+where price >= 25;\
+where price BETWEEN 25 AND 40;\
+WHERE NAME NOT IN ('Idli');\
+WHERE name = 'Samosa' AND price = 30;\
+\
+create table menu_category(\
+	id SERIAL PRIMARY KEY,\
+	name VARCHAR,\
+	description VARCHAR,\
+)\
+\
+\
+8/8/24\
+\
+ CREATE TABLE menu_category(\
+	 id serial PRIMARY KEY,\
+	 name VARCHAR,\
+	 discription VARCHAR\
+ );\
+CREATE TABLE hotel_menu(\
+	 id SERIAL PRIMARY KEY, \
+	 name VARCHAR,\
+	 price INTEGER,\
+	 catergory_id INTEGER REFERENCES menu_category(id)\
+);\
+\
+insert into menu_category(name, description)\
+values ('South Indian','CONTINENTAL'),\
+('Maharashtrian','CONTINENTAL'),\
+('Punjabi','CONTINENTAL'),\
+('Italian','ORIENTAL'),\
+('American','ORIENTAL'),\
+('Central India','CONTINENTAL');\
+\
+\
+\
+insert into hotel_menu(name, price, category_id)\
+values('Idli',30,3),\
+('Vada Pav',30,1),\
+('Samosa',25,2),\
+('Kachori',25,2),\
+('Pav Bhaji',40,2),\
+('Crispy Veg',50,1),\
+('Macroni',50,1),\
+('Pizza',45,1);\
+\
+\
+select * \
+	from hotel_menu\
+join menu_category\
+on hotel_menu.category_id = menu_category.id\
+\
+select * \
+	from hotel_menu\
+join menu_category\
+on hotel_menu.category_id = menu_category.id\
+where hotel_menu.name = 'Idli'\
+\
+select price + 4 as new_rates from hotel_menu\
+\
+\
+select a.name, a.price, b.name\
+	from hotel_menu as a\
+join menu_category as b\
+on a.category_id = b.id\
+where a.price > 25\
+\
+\
+select a.name,a.price,b.name, b.description\
+	from hotel_menu as a\
+join menu_category as b\
+on a.category_id = b.id\
+where a.name != 'Idli'\
+\
+\
+select *\
+	from hotel_menu as a\
+join menu_category as b\
+on a.category_id = b.id\
+where a.name != 'Idli'\
+\
+\
+\
+select a.name, a.price, b.name\
+from hotel_menu as a\
+join menu_category as b\
+on a.category_id = b.id\
+where b.name = 'Maharashtrian' OR a.price > 35;\
+\
+\
+\
+select *from hotel menu \
+FULL JOIN menu_category\
+on hotel_menu.category_id = menu_category.id;\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs48 \cf0 DATED 12 AUGUST
+\fs24 \
+\
+create table menu_category(\
+id SERIAL PRIMARY KEY,\
+name VARCHAR,\
+description VARCHAR\
+);\
+create table hotel_menu(\
+id SERIAL PRIMARY KEY,\
+name VARCHAR,\
+price INTEGER,\
+category_id INTEGER REFERENCES menu_category(id) ON DELETE CASCADE\
+);\
+create table users(\
+id SERIAL PRIMARY KEY,\
+name VARCHAR\
+);\
+create table users_review(\
+id SERIAL PRIMARY KEY,\
+review_text VARCHAR,\
+review_star INTEGER,\
+menu_id INTEGER references hotel_menu(id) ON DELETE CASCADE,\
+user_id INTEGER references users(id) ON DELETE CASCADE\
+);\
+\
+\
+\
+	\
+\
+insert into users(name)\
+values ('Ayush N'),\
+('Ayush B'),\
+('Sachin'),\
+('Rahul'),\
+('Yuvraj'),\
+('Harmeet');\
+\
+insert into users_review(review_text, review_star, menu_id, user_id)\
+values ('Good',4,1,1),\
+('Average',3,1,2),\
+('Bad',2,1,3),\
+('Best',5,1,4),\
+('Good',4,1,5),\
+('ABC',4,1,5),\
+('DEF',4,2,5),\
+('GHI',4,2,5),\
+('JKL',4,3,5);\
+\
+\
+\
+insert into hotel_menu (name, price, category_id)\
+values ('MASALA ROTI', 150, NULL);\
+\
+\
+SELECT a.name, a.price, b.name\
+from hotel_menu as a\
+left join menu_category as b\
+on a.category_id = b.id\
+\
+\
+SELECT a.name, a.price, b.name\
+from hotel_menu as a\
+right join menu_category as b\
+on a.category_id = b.id\
+\
+\
+\
+SELECT a.name, a.price, b.name\
+from hotel_menu as a\
+FULL join menu_category as b\
+on a.category_id = b.id\
+\
+\
+SELECT a.name, a.price, b.name\
+from menu_category as b\
+join hotel_menu as a\
+on a.category_id = b.id\
+\
+\
+SELECT * \
+from users_review\
+join users\
+on users_review.user_id = users.id;\
+\
+\
+SELECT * \
+from users_review\
+join users\
+on users_review.user_id = users.id\
+where users_review.review_text = 'Good';\
+\
+\
+\
+							SELECT a.review_text, a.review_star, b.name, c.name \
+from users_review as a\
+join users as b\
+on a.user_id = b.id\
+join hotel_menu as c \
+on	a.menu_id = c.id;\
+\
+\
+\
+insert into users_review(review_text, review_star, menu_id, user_id)\
+values('Spicy', 3,4,3),\
+('Spicy', 3,2,3),\
+('Spicy', 3,3,3),\
+('Spicy', 3,5,3);\
+\
+\
+\
+\
+				SELECT a.review_text, a.review_star, b.name, c.name, d.name \
+from users_review as a\
+join users as b\
+on a.user_id = b.id\
+join hotel_menu as c \
+on	a.menu_id = c.id\
+join menu_category as d\
+on c.category_id = d.id\
+\
+\
+\
+				
+\fs28 SELECT a.review_text, a.review_star, c.name, d.name \
+from users_review as a\
+join hotel_menu as c\
+on a.menu_id = c.id\
+join menu_category as d \
+on	c.category_id = d.id\
+where a.review_star = 4 and d.name = 'South Indian';\
+\
+
+\fs34 \
+SELECT a.review_text, a.review_star, d.name \
+from users_review as a\
+join hotel_menu as c\
+on a.menu_id = c.id\
+join menu_category as d \
+on	c.category_id = d.id\
+where a.review_star >= 4 and d.name = 'South Indian';\
+\
+\
+
+\fs48 Dated 13 August\
+STUDENT TABLE\
+\
+
+\fs28 CREATE table skills(\
+id SERIAL PRIMARY KEY,\
+name VARCHAR,\
+progress INTEGER                                                                                              \
+);
+\fs48 \
+\
+
+\fs28 CREATE table hobbies(\
+id SERIAL PRIMARY KEY,\
+maths INTEGER, \
+science INTEGER, \
+history INTEGER \
+);\
+\
+\
+CREATE table hobbies(\
+id SERIAL PRIMARY KEY,\
+name VARCHAR,\
+active INTEGER\
+);
+\fs48 \
+\
+
+\fs28 CREATE table student_info(\
+id SERIAL PRIMARY KEY,\
+name VARCHAR,\
+rollno INTEGER,\
+education VARCHAR,\
+skill_id INTEGER REFERENCES skills(id) ON DELETE SET NULL,\
+report_id INTEGER REFERENCES report(id) ON DELETE SET NULL,\
+hobbies_id INTEGER REFERENCES hobbies(id) ON DELETE SET NULL\
+);\
+
+\fs48 \
+Insert\
+
+\fs26 insert into skills(id, name, progress)\
+values (1,'Html',60),\
+(2,'Html',70),\
+(3,'Html',80),\
+(4,'Html',80),\
+(5,'Css',60),\
+(6,'Css',70),\
+(7,'Css',80),\
+(8,'Css',90),\
+(9,'Js',60),\
+(10,'Js',70),\
+(11,'Js',80),\
+(12,'Js',90);\
+\
+\
+insert into hobbies(id, name, active)\
+values (1,'cricket',1),\
+(2,'cricket',0),\
+(3,'carrom',1),\
+(4,'Html',1),\
+(5,'badminton',1),\
+(6,'singing',1),\
+(7,'football',1),\
+(8,'football',0),\
+(9,'kho kho',0),\
+(10,'hide&seek',0),\
+(11,'drawing',1),\
+(12,'dancing',1);\
+\
+INSERT INTO report(id,maths,science,history)\
+VALUES (1,40,40,40),\
+(2,5,40,40),\
+(3,40,60,40),\
+(4,40,40,70),\
+(5,80,40,60),\
+(6,50,70,80),\
+(7,50,70,80),\
+(8,70,70,80),\
+(9,100,100,100),\
+(10,90,70,80),\
+(11,20,45,100),\
+(12,25,80,100),\
+(13,30,90,80);\
+\
+insert into student_info(id,name,rollno,education,skill_id,report_id,hobbies_id)\
+values(1,'Himanshu',101,12,3,3,3),\
+(2,'Atharav',102,10,1,1,1),\
+(3,'Yash',103	,12,2,2,2),\
+(4,'Pranamya',104,10,4,	4,4),\
+(5,'ratnesh',105,12,6,6,6),\
+(6,'Alekh',106,10,8	,8,8),\
+(7,'Achal',107,12,10,10,10),\
+(8,'Samiksha',108,10,11,11,11),\
+(9,'rudra',109,12,12,12,12),\
+(10,'lucky',110,10,3,3,3),\
+(11,'ayushn',111,12,2,2,2),\
+(12,'ayushl',112,10,1,1,1),\
+(13,'ayushb',113,12,4,4,4),\
+(14,'yogesh',114,10,5,5,5);
+\fs48 \
+
+\fs28 \
+\
+
+\fs36 Dated 15 August 24\
+\
+
+\fs28 select count(*) from student_info\
+select count(*) from student_info\
+where education = '10';\
+\
+\
+\
+select *\
+from student_info as b\
+join hobbies as a\
+on b.hobbies_id = a.id\
+where b.education='10' AND a.name='cricket';\
+\
+\
+select b.name, b.education, c.name, d.maths, a.name \
+from student_info as b\
+join hobbies as a\
+on b.hobbies_id = a.id\
+join skills as c \
+on b.skill_id = c.id\
+join report as d\
+on b.report_id = d.id\
+where b.education='10' AND a.name='cricket' AND d.maths='40' AND c.name='Html'; \
+\
+\
+select max(d.maths)\
+from student_info as b\
+join hobbies as a\
+on b.hobbies_id = a.id\
+join skills as c \
+on b.skill_id = c.id\
+join report as d\
+on b.report_id = d.id\
+\
+\
+select a.name, d.maths\
+from student_info as b\
+join hobbies as a\
+on b.hobbies_id = a.id\
+join skills as c \
+on b.skill_id = c.id\
+join report as d\
+on b.report_id = d.id\
+where a.name='cricket' AND d.maths='40'; \
+\
+\
+22 aug\
+\
+SELECT count(review_star),review_star\
+from users_review\
+group by review_star\
+\
+SELECT count(review_star), review_star,b.name\
+FROM users_review AS a\
+JOIN users AS b\
+ON a.user_id=b.id \
+group by a.review_star, b.name\
+\
+\
+SELECT count(review_star), review_text,b.name\
+FROM users_review AS a\
+join users as b\
+on a.user_id = b.id\
+group by a.review_text,b.name\
+having review_text = 'TOO GOOD';\
+\
+\
+SELECT max(review_star),b.name,c.name,review_star,d.name\
+FROM users_review AS a\
+join users as b\
+on a.user_id = b.id\
+join hotel_menu as c\
+on a.menu_id = c.id\
+join menu_category as d\
+on c.category_id = d.id\
+group by b.name,c.name,review_star,d.name\
+having c.name = 'idli' \
+\
+\
+SELECT max(review_star),c.name,review_star,d.name,b.name\
+FROM users_review AS a\
+join users as b\
+on a.user_id = b.id\
+join hotel_menu as c\
+on a.menu_id = c.id\
+join menu_category as d\
+on c.category_id = d.id\
+group by c.name,review_star,d.name,b.name,user_id\
+having a.review_star = 3 \
+\
+\
+28/8/24\
+\
+SELECT *\
+FROM users_review AS a\
+FULL JOIN users AS b\
+ON a.user_id=b.id \
+ORDER  BY review_star NULLS FIRST\
+OFFSET 10\
+LIMIT 10\
+\
+\
+29/8/24\
+SELECT name FROM users\
+UNION \
+SELECT name FROM menu_category\
+\
+\
+SELECT COUNT(category),category\
+FROM products_a\
+GROUP BY category\
+UNION\
+SELECT COUNT(category),category\
+FROM products_b\
+GROUP BY category\
+\
+\
+30/8/24\
+\
+CREATE TABLE COURSES_PICKED(\
+   STUDENT_ID INT NOT NULL, \
+   STUDENT_NAME VARCHAR(30) NOT NULL, \
+   COURSE_NAME VARCHAR(30) NOT NULL\
+);\
+\
+INSERT INTO COURSES_PICKED VALUES\
+(1, 'JOHN', 'ENGLISH'),\
+(2, 'ROBERT', 'COMPUTER SCIENCE'),\
+(3, 'SASHA', 'COMMUNICATIONS'),\
+(4, 'JULIAN', 'MATHEMATICS');\
+\
+CREATE TABLE EXTRA_COURSES_PICKED(\
+   STUDENT_ID INT NOT NULL, \
+   STUDENT_NAME VARCHAR(30) NOT NULL, \
+   EXTRA_COURSE_NAME VARCHAR(30) NOT NULL\
+);\
+\
+INSERT INTO EXTRA_COURSES_PICKED VALUES\
+(1, 'JOHN', 'PHYSICAL EDUCATION'),\
+(2, 'ROBERT', 'GYM'),\
+(3, 'SASHA', 'FILM'),\
+(4, 'JULIAN', 'MATHEMATICS');\
+\
+\
+select student_name from courses_picked\
+intersect\
+select student_name from extra_courses_picked\
+\
+select DISTINCT (review_text) from users_review\
+\
+31/8/24\
+select  product_name,category,price from products_a\
+union\
+select  product_name,category,price from products_b\
+limit 10\
+\
+\
+//showing caesar salad ingredients list\
+SELECT a.item_name,c.ingredient_name\
+FROM menu_items AS a\
+join menu_item_ingredients as b\
+on a.item_id = b.menu_item_id\
+join ingredients as c\
+on b.ingredient_id = c.ingredient_id\
+group by a.item_name,c.ingredient_name\
+having a.item_name = 'Caesar Salad'\
+\
+\
+4-9-24\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 select\
+	*,\
+	greatest(price,discounted_price,special_price)\
+from \
+	products\
+\
+\
+select\
+	*,\
+	least(price,discounted_price,special_price) as updated\
+from \
+	products\
+\
+SELECT\
+	*,\
+	coalesce(PRICE, DISCOUNTED_PRICE, SPECIAL_PRICE) AS UPDATED\
+FROM\
+	PRODUCTS\
+\
+SELECT \
+	price,\
+	*,\
+	greatest(coalesce(discounted_price,50)) as new_price\
+FROM\
+	PRODUCTS\
+\
+SELECT\
+	DISCOUNTED_PRICE,\
+	*,\
+	GREATEST(COALESCE(DISCOUNTED_PRICE, 50)) AS NEW_PRICE\
+FROM\
+	PRODUCTS\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs28 \cf0 \
+\
+\
+5/9/24\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 SELECT\
+	*,\
+	CASE\
+		WHEN PRICE < 50 THEN 'medium'\
+		WHEN PRICE < 100 THEN 'high'\
+		ELSE 'expensive'\
+	END\
+FROM\
+	HOTEL_MENU\
+\
+\
+SELECT\
+	*,\
+	CASE\
+		WHEN coalesce(PRICE,0) <50 THEN 'medium'\
+		when price < 50  then 'medium'\
+		when price < 100 then 'high'\
+	else 'high'\
+	\
+	END\
+FROM\
+	HOTEL_MENU\
+\
+\
+\
+\
+\
+12-9-24\
+delete from employees\
+	where id = 4;\
+\
+select * from employees\
+\
+\
+\
+\
+13-9-24\
+-- alter table employees\
+-- 	add column files bytea;\
+insert into employees (files)\
+	values (pg_read_binary_file('/Users/enjoy_12_a/Downloads/AppIcons (1)  '));\
+select * from employees}

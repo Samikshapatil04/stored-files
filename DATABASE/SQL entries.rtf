@@ -1,0 +1,384 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2820
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\froman\fcharset0 Times-Roman;
+\f3\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red15\green57\blue175;\red207\green136\blue7;\red209\green105\blue6;
+\red0\green0\blue0;\red46\green0\blue141;\red21\green93\blue255;\red255\green255\blue255;\red251\green167\blue9;
+\red157\green0\blue222;}
+{\*\expandedcolortbl;;\cssrgb\c6238\c31382\c74150;\cssrgb\c85350\c59907\c0;\cssrgb\c86161\c49166\c0;
+\cssrgb\c0\c0\c0;\cssrgb\c24324\c6455\c62064;\cssrgb\c8872\c47049\c100000;\cssrgb\c100000\c100000\c100000;\cssrgb\c99329\c71004\c0;
+\cssrgb\c68591\c7835\c89602;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11540\viewh8420\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 SQL Database\
+\
+
+\f1\b\fs28 \ul Date: 30/05/25\
+\
+
+\f0\b0 \ulnone 1) create table and add entries\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f2\fs24 \cf0 \expnd0\expndtw0\kerning0
+CREATE TABLE marks (\uc0\u8232 \'a0 student_name VARCHAR(50),\u8232 \'a0 teacher_name VARCHAR(50),\u8232 \'a0 subject_name VARCHAR(50),\u8232 \'a0 age INT,\u8232 \'a0 obtained_marks INT,\u8232 \'a0 max_marks INT\u8232 );\
+\'a0\
+INSERT INTO marks (student_name, teacher_name, subject_name, age, obtained_marks, max_marks)\uc0\u8232 VALUES\u8232 \'a0 ('Vishal', 'Ayush Sir', 'Science', 14, 82, 100),\u8232 \'a0 ('Himanshu', 'Yogesh Sir', 'Maths', 18, 90, 150),\u8232 \'a0 ('Achal', 'Yash Sir', 'DBMS', 21, 92, 100),\u8232 \'a0 ('Samiksha', 'AyushL Sir', 'HTML', 20, 96, 180);\
+\'a0\
+SELECT * FROM marks;\
+\
+2) another table\
+\pard\pardeftab720\partightenfactor0
+\cf0 CREATE TABLE students(\
+roll_no SERIAL PRIMARY KEY,\
+student_name VARCHAR(50),\
+grade VARCHAR,\
+age INTEGER\
+);INSERt INTO students(student_name,grade,age)\
+VALUES('Himanshu','12th','18'),\
+('Achal','4th year','21'),\
+('Ashish','2nd year','20');\
+SELECT * FROM students\
+\
+3) another table\
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf0 I
+\fs28 NSERT INTO marks (student_name, subject_name, teacher, age, max_marks, obtained_marks)\
+VALUES\
+('Riya', 'Programming', 'Ayush Sir', 19, 150, 122),\
+('Tanmay', 'DBMS', 'Yash Sir', 20, 100, 81),\
+('Sneha', 'Fundamentals', 'Alfiya Madam', 21, 100, 66),\
+('Ravi', 'Prompt_Engineering', 'Yogesh Sir', 22, 150, 131),\
+('Aisha', 'Programming', 'Ayush Sir', 18, 150, 140),\
+('Kunal', 'DBMS', 'Yash Sir', 21, 100, 69),\
+('Zoya', 'Fundamentals', 'Alfiya Madam', 20, 100, 92),\
+('Sahil', 'Prompt_Engineering', 'Yogesh Sir', 19, 150, 145),\
+('Divya', 'Programming', 'Ayush Sir', 22, 150, 111),\
+('Ayan', 'DBMS', 'Yash Sir', 18, 100, 88),\
+('Ishita', 'Prompt_Engineering', 'Yogesh Sir', 20, 150, 113),\
+('Kabir', 'Fundamentals', 'Alfiya Madam', 21, 100, 78),\
+('Neha', 'Programming', 'Ayush Sir', 20, 150, 134),\
+('Rohit', 'DBMS', 'Yash Sir', 22, 100, 72),\
+('Meera', 'Fundamentals', 'Alfiya Madam', 19, 100, 85),\
+('Ansh', 'Prompt_Engineering', 'Yogesh Sir', 21, 150, 108),\
+('Vanya', 'Programming', 'Ayush Sir', 18, 150, 128),\
+('Yuvraj', 'DBMS', 'Yash Sir', 20, 100, 93),\
+('Simran', 'Fundamentals', 'Alfiya Madam', 22, 100, 90),\
+('Dev', 'Prompt_Engineering', 'Yogesh Sir', 19, 150, 137);\
+\
+4) \
+select student_name, subject_name, teacher_name, obtained_marks\
+from marks\
+where subject_name = 'Fundamentals'\
+order by obtained_marks;\
+\
+5) \
+delete from marks\
+where student_name = 'Tanmay';\
+select student_name, subject_name, teacher_name, obtained_marks\
+from marks;
+\fs24 \
+\
+6)\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f3 \cf0 SELECT student_name,obtained_marks\uc0\u8232 FROM marks\u8232 ORDER BY student_name;\
+\pard\pardeftab720\partightenfactor0
+\cf0 \'a0\
+\pard\pardeftab720\sa280\partightenfactor0
+\cf0 SELECT student_name,obtained_marks\uc0\u8232 FROM marks\u8232 ORDER BY obtained_marks DESC;
+\fs28 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \'a0
+\f2\fs24 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs28 \cf0 7) update
+\fs24 \
+UPDATE marks\
+SET subject_name = 'DBMS'\
+WHERE student_name = 'Vaishali';\
+SELECT * FROM marks;  \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 \
+\
+2 June 25\
+\
+
+\fs36 Arithmetic operator
+\fs28 \
+select * from marks\
+where obtained_marks > max_marks * 0.7\
+\
+IN\
+select * from marks. ////in sare entries\
+where teacher_name in ('Yash Sir', 'Ayush Sir')\
+\
+\cb2 NOT IN \cb1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   \
+select * from marks.  ///// mention entries ko chod k\
+where teacher_name not in ('Yash Sir', 'Ayush Sir')\
+ \
+\cb3 BETWEEN   \cb1                                                                                                                  \
+select * from marks.     ////also takes extends value \
+where obtained_marks between 56 and 70;\
+\
+\cb4 Concatenate\cb1 \
+select 'Hello' || 'Enjoy Programming\'92.       OR\
+select concat('SAM ', 'ARTIST')          OR\
+select concat(student_name, ' ->' ,teacher_name) from marks\
+\
+Upper & Lower case\
+select UPPER(student_name) from marks\
+select LOWER(student_name) from marks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       \
+\
+\cb4 Length\cb1 \
+select student_name, Length(student_name) from marks;\
+\
+select concat (student_name, ' Is my favourite student') from marks\
+where student_name IN ('Yas', 'Anika', 'Bhushan') AND subject_name = 'DBMS'\
+\
+select 'HELLO, ' || student_name || ' is my favourite student.' FROM marks\
+\
+\
+Queries\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 -- select\'a0\'a0 *\'a0 from marks\'a0\uc0\u8232 -- where teacher != 'Yash Sir'\
+-- select student_name , subject_name , obtained_marks from marks\'a0\uc0\u8232 -- where obtained_marks> max_marks/2 ;\
+-- select * from marks\'a0\uc0\u8232 -- where\'a0 obtained_marks% 2=0 ;\
+-- select * from marks\'a0\uc0\u8232 -- where obtained_marks= 0.7 * max_marks;\u8232 -- select * from marks\'a0\u8232 -- where student_name IN ('Anika','Zoya','Krish')\
+-- select * from marks\'a0\uc0\u8232 -- where obtained_marks BETWEEN 80 AND 120\
+-- select * from marks where age BETWEEN 17 AND 20;\
+-- select * from marks where teacher NOT IN('Yash Sir' , 'Ayush Sir')\
+-- select * from marks where obtained_marks = 150;\
+-- select * from marks where obtained_marks % 10 =0;\
+-- select * from marks where obtained_marks>=75-5 AND age<=20\
+-- select * from marks where obtained_marks <= (100+20)\'a0 AND subject_name='Programming'\
+-- select * from marks where obtained_marks <= (60+15) AND subject_name != 'Prompt_Engineering'\
+-- select * from marks where obtained_marks >= (25*3) AND teacher != 'Ayush Sir'\
+select * from marks where obtained_marks %5 AND age > (8*2)\
+\
+\cb6 AGGREGATE OPERATOR\cb1 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f0 \cf0 select AVG(obtained_marks) from marks\
+select SUM(obtained_marks) from marks\
+select MAX(obtained_marks) from marks.    \
+select MIN(obtained_marks) from marks\
+select COUNT(obtained_marks) from marks.    OR\
+select COUNT(*) from marks\
+\
+select COUNT(subject_name) from marks\
+where student_name = 'Anika'\
+\
+select sum(obtained_marks) AS obt_marks, SUM(max_marks) AS Total_marks, \
+(SUM(obtained_marks) * 100)/(SUM(max_marks)) AS PERCENTAGE from marks \
+where student_name = 'Anika';\
+\
+
+\fs36 Group By\
+
+\fs24 select student_name, AVG(obtained_marks) from marks\
+GROUP BY student_name\
+\
+select student_name, COUNT(student_name) from marks\
+Group By student_name\
+\
+select student_name, AVG(obtained_marks) from marks\
+Group By student_name\
+\
+\
+
+\fs48 Date :  18/06/25\
+
+\fs36 \cb7 DBMS FOR LIBRARY
+\fs48 \cb1 \
+
+\f1\b\fs26 \cf8 \cb9 Primary & foreign key
+\f0\b0\fs48 \cf0 \cb1 \
+
+\fs24 CREATE TABLE genres (\
+  genre_id SERIAL PRIMARY KEY,\
+  genre_name TEXT NOT NULL\
+);\
+ \
+-- Table 2: authors\
+CREATE TABLE authors (\
+  author_id SERIAL PRIMARY KEY,\
+  name TEXT NOT NULL,\
+  birth_year INT,\
+  nationality TEXT\
+);\
+ \
+-- Table 3: shelves\
+CREATE TABLE shelves (\
+  shelf_id SERIAL PRIMARY KEY,\
+  shelf_code TEXT NOT NULL UNIQUE,\
+  location_description TEXT\
+);\
+ \
+-- Table 4: books\
+CREATE TABLE books (\
+  book_id SERIAL PRIMARY KEY,\
+  title TEXT NOT NULL,\
+  author_id INT REFERENCES authors(author_id) ON DELETE CASCADE,\
+  genre_id INT REFERENCES genres(genre_id) ON DELETE SET NULL,\
+  shelf_id INT REFERENCES shelves(shelf_id) ON DELETE CASCADE,\
+  publish_date DATE,\
+  isbn TEXT UNIQUE,\
+  copies_available INT DEFAULT 1\
+);\
+\
+\cb10 INSERT DATA\cb1 \
+\
+-- Insert values into genres\
+INSERT INTO genres (genre_name) VALUES\
+  ('Fantasy'),\
+  ('Mystery'),\
+  ('Romance'),\
+  ('Fiction'),\
+  ('Non-Fiction'),\
+  ('Science Fiction'),\
+  ('Classic');\
+ \
+-- Insert values into authors\
+INSERT INTO authors (name, birth_year, nationality) VALUES\
+  ('J.K. Rowling', 1965, 'British'),\
+  ('George Orwell', 1903, 'British'),\
+  ('Jane Austen', 1775, 'British'),\
+  ('Mark Twain', 1835, 'American'),\
+  ('Agatha Christie', 1890, 'British'),\
+  ('Paulo Coelho', 1947, 'Brazilian'),\
+  ('Dan Brown', 1964, 'American'),\
+  ('Haruki Murakami', 1949, 'Japanese'),\
+  ('Khaled Hosseini', 1965, 'Afghan-American'),\
+  ('R.K. Narayan', 1906, 'Indian'),\
+  ('Erich Segal', 1937, 'American'),\
+  ('Arundhati Roy', 1961, 'Indian'),\
+  ('Leo Tolstoy', 1828, 'Russian'),\
+  ('Emily Dickinson', 1830, 'American'),\
+  ('F. Scott Fitzgerald', 1896, 'American');\
+\
+INSERT INTO shelves (shelf_code, location_description) VALUES\
+-- Fiction (4 shelves)\
+('FIC-01A', 'Ground Floor - Fiction Rack, Row 1, Shelf A'),\
+('FIC-01B', 'Ground Floor - Fiction Rack, Row 1, Shelf B'),\
+('FIC-02A', 'Ground Floor - Fiction Rack, Row 2, Shelf A'),\
+('FIC-02B', 'Ground Floor - Fiction Rack, Row 2, Shelf B'),\
+ \
+-- Romance (4 shelves)\
+('ROM-01A', 'Ground Floor - Romance Rack, Row 1, Shelf A'),\
+('ROM-01B', 'Ground Floor - Romance Rack, Row 1, Shelf B'),\
+('ROM-02A', 'Ground Floor - Romance Rack, Row 2, Shelf A'),\
+('ROM-02B', 'Ground Floor - Romance Rack, Row 2, Shelf B'),\
+ \
+-- Mystery (4 shelves)\
+('MYS-11A', 'First Floor - Mystery Rack, Row 1, Shelf A'),\
+('MYS-11B', 'First Floor - Mystery Rack, Row 1, Shelf B'),\
+('MYS-12A', 'First Floor - Mystery Rack, Row 2, Shelf A'),\
+('MYS-12B', 'First Floor - Mystery Rack, Row 2, Shelf B'),\
+ \
+-- History (4 shelves)\
+('HIS-11A', 'First Floor - History Rack, Row 1, Shelf A'),\
+('HIS-11B', 'First Floor - History Rack, Row 1, Shelf B'),\
+('HIS-12A', 'First Floor - History Rack, Row 2, Shelf A'),\
+('HIS-12B', 'First Floor - History Rack, Row 2, Shelf B'),\
+ \
+-- Fantasy (4 shelves)\
+('FAN-21A', 'Second Floor - Fantasy Rack, Row 1, Shelf A'),\
+('FAN-21B', 'Second Floor - Fantasy Rack, Row 1, Shelf B'),\
+('FAN-22A', 'Second Floor - Fantasy Rack, Row 2, Shelf A'),\
+('FAN-22B', 'Second Floor - Fantasy Rack, Row 2, Shelf B'),\
+ \
+-- Biography (4 shelves)\
+('BIO-21A', 'Second Floor - Biography Rack, Row 1, Shelf A'),\
+('BIO-21B', 'Second Floor - Biography Rack, Row 1, Shelf B'),\
+('BIO-22A', 'Second Floor - Biography Rack, Row 2, Shelf A'),\
+('BIO-22B', 'Second Floor - Biography Rack, Row 2, Shelf B'),\
+ \
+-- Philosophy (4 shelves)\
+('PHI-31A', 'Third Floor - Philosophy Rack, Row 1, Shelf A'),\
+('PHI-31B', 'Third Floor - Philosophy Rack, Row 1, Shelf B'),\
+('PHI-32A', 'Third Floor - Philosophy Rack, Row 2, Shelf A'),\
+('PHI-32B', 'Third Floor - Philosophy Rack, Row 2, Shelf B'),\
+ \
+-- Poetry (4 shelves)\
+('POE-31A', 'Third Floor - Poetry Rack, Row 1, Shelf A'),\
+('POE-31B', 'Third Floor - Poetry Rack, Row 1, Shelf B'),\
+('POE-32A', 'Third Floor - Poetry Rack, Row 2, Shelf A'),\
+('POE-32B', 'Third Floor - Poetry Rack, Row 2, Shelf B'),\
+ \
+-- Classics (4 shelves)\
+('CLA-41A', 'Fourth Floor - Classics Rack, Row 1, Shelf A'),\
+('CLA-41B', 'Fourth Floor - Classics Rack, Row 1, Shelf B'),\
+('CLA-42A', 'Fourth Floor - Classics Rack, Row 2, Shelf A'),\
+('CLA-42B', 'Fourth Floor - Classics Rack, Row 2, Shelf B'),\
+ \
+-- Science (4 shelves)\
+('SCI-41A', 'Fourth Floor - Science Rack, Row 1, Shelf A'),\
+('SCI-41B', 'Fourth Floor - Science Rack, Row 1, Shelf B'),\
+('SCI-42A', 'Fourth Floor - Science Rack, Row 2, Shelf A'),\
+('SCI-42B', 'Fourth Floor - Science Rack, Row 2, Shelf B');\
+\
+-- Inserting 40 books into the books table\
+INSERT INTO books (title, author_id, genre_id, shelf_id, publish_date, isbn, copies_available) VALUES\
+('The Great Gatsby', 15, 4, 3, '1925-04-10', '9780743273565', 4),\
+('The Alchemist', 6, 1, 18, '1988-01-01', '9780062315007', 4),\
+('Murder on the Orient Express', 5, 2, 9, '1934-01-01', '9780007119318', 2),\
+('The Adventures of Tom Sawyer', 4, 7, 30, '1876-06-01', '9780486400778', 2),\
+('The Da Vinci Code', 7, 2, 11, '2003-03-18', '9780385504201', 3),\
+('The Casual Vacancy', 1, 4, 1, '2012-09-27', '9780316228534', 2),\
+('The Time Machine', 2, 6, 27, '1895-01-01', '9780812968847', 1),\
+('The Kite Runner', 9, 4, 1, '2003-05-29', '9781594631931', 3),\
+('The Mysterious Affair at Styles', 5, 2, 11, '1920-10-01', '9780007119332', 2),\
+('Norwegian Wood', 8, 4, 4, '1987-09-04', '9780375704024', 3),\
+('The War of the Worlds', 2, 6, 28, '1898-01-01', '9780451528520', 2),\
+('The Complete Poems of Emily Dickinson', 14, 5, 22, '1890-01-01', '9780316184137', 1),\
+('Harry Potter and the Chamber of Secrets', 1, 1, 17, '1998-07-02', '9780747538493', 2),\
+('The God of Small Things', 12, 4, 2, '1997-04-04', '9780679457312', 1),\
+('The Cuckoo''s Calling', 1, 2, 9, '2013-04-30', '9780316206846', 1),\
+('The Diary of a Young Girl', 15, 5, 24, '1947-06-25', '9780553296983', 2),\
+('1Q84', 8, 1, 17, '2009-05-29', '9780307593313', 1),\
+('The ABC Murders', 5, 2, 10, '1936-01-01', '9780425200459', 1),\
+('The Guide', 10, 4, 3, '1958-01-01', '9788185986174', 2),\
+('Angels & Demons', 7, 2, 9, '2000-05-01', '9780743493468', 2),\
+('Harry Potter and the Philosopher''s Stone', 1, 1, 17, '1997-06-26', '9780747532743', 3),\
+('And Then There Were None', 5, 2, 12, '1939-11-06', '9780007136834', 2),\
+('Pride and Prejudice', 3, 3, 5, '1813-01-28', '9780141439518', 4),\
+('Animal Farm', 2, 6, 26, '1945-08-17', '9780451526342', 3),\
+('Emma', 3, 3, 6, '1815-12-23', '9780141439587', 2),\
+('Brida', 6, 3, 8, '1990-08-01', '9780061578959', 2),\
+('The Prophet', 6, 5, 23, '1923-01-01', '9780394404288', 3),\
+('War and Peace', 13, 5, 21, '1869-01-01', '9781400079988', 2),\
+('A Thousand Splendid Suns', 9, 4, 2, '2007-05-22', '9781594483851', 3),\
+('Adventures of Huckleberry Finn', 4, 7, 29, '1884-12-10', '9780486280615', 3),\
+('1984', 2, 6, 25, '1949-06-08', '9780451524935', 4),\
+('Death on the Nile', 5, 2, 10, '1937-11-01', '9780007119295', 1),\
+('Tender Is the Night', 15, 4, 4, '1934-01-01', '9780684801544', 1),\
+('Love Story', 11, 3, 7, '1970-02-14', '9780061123965', 1),\
+('Great Expectations', 3, 7, 32, '1861-01-01', '9780141439563', 2),\
+('Kafka on the Shore', 8, 1, 19, '2002-09-12', '9781400079278', 1),\
+('Persuasion', 3, 3, 5, '1817-12-20', '9780141439686', 3),\
+('Anna Karenina', 13, 7, 31, '1877-01-01', '9780143035008', 1),\
+('Sense and Sensibility', 3, 3, 6, '1811-10-30', '9780141439662', 2),\
+('Inferno', 7, 2, 12, '2013-05-14', '9780385537858', 3);\
+\
+\
+
+\f1\b JOIN AUTHORS TABLE WITH BOOKS TABLE USING AUTHOR_ID FROM AUTHORS TABLE AND AUTHOR_ID FROM BOOKS TABLE
+\f0\b0 \
+select name,title\
+from authors\
+join books\
+on authors.author_id = books.author_id;\
+\
+
+\f1\b QUERY TO SEE HOW MANY BOOKS IN ONE GENRE
+\f0\b0 \
+select genre_name, count(title)\
+from genres\
+join books\
+on genres.genre_id = books.genre_id\
+group by genre_name;}
